@@ -6,8 +6,8 @@ import {UsersComponent} from './users/users.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
-  {path: '/posts', component: PostsComponent},
-  {path: '/users', component: UsersComponent},
+  {path: 'posts', component: PostsComponent},
+  {path: 'users', component: UsersComponent},
   // {path: 'login', component: UserLoginComponent, canActivate: [NavigationGuard]},
   // {
   //   path: 'admin',

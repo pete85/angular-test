@@ -8,6 +8,9 @@ import { PostsComponent } from './posts/posts.component';
 import { UsersComponent } from './users/users.component';
 import { PostComponent } from './posts/post/post.component';
 import { UserComponent } from './users/user/user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSliderModule} from '@angular/material/slider';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +19,15 @@ import { UserComponent } from './users/user/user.component';
     PostsComponent,
     UsersComponent,
     PostComponent,
-    UserComponent
+    UserComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
