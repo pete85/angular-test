@@ -9,8 +9,12 @@ import { UsersComponent } from './users/users.component';
 import { PostComponent } from './posts/post/post.component';
 import { UserComponent } from './users/user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatSliderModule} from '@angular/material/slider';
 import { HeaderComponent } from './header/header.component';
+
+// Angular Material imports
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,9 @@ import { HeaderComponent } from './header/header.component';
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
