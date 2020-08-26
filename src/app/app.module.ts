@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
+import {ReactiveFormsModule} from '@angular/forms';
 
 // Angular Material imports
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -20,6 +21,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { LoginComponent } from './login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     UsersComponent,
     PostComponent,
     UserComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +50,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatSidenavModule,
     MatListModule,
     HttpClientModule,
-    MatGridListModule
+    MatGridListModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

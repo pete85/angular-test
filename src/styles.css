@@ -23,6 +23,20 @@ html, body { height: 100%; margin: 0}
   z-index: 1000;
 }
 
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: url("assets/img/bg2.jpg");
+  background-size: cover;
+}
+
+.login-form .mat-form-field {
+  width: 80%;
+}
+
 .homepage {
   width: 100vw;
   height: 100vh;
@@ -58,6 +72,10 @@ html, body { height: 100%; margin: 0}
 .mat-grid-list {
   width: 100%;
   margin-top: 20px;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .txt-center {
@@ -218,5 +236,9 @@ mat-drawer:not(.mat-drawer-opened) .home-button {
   .homepage h1 {
     font-size: 4em;
     line-height: 1.1;
+  }
+
+  .login-form .mat-form-field {
+    width: 30%;
   }
 }

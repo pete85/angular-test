@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatDrawer} from '@angular/material/sidenav';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-header',
@@ -9,10 +10,18 @@ import {MatDrawer} from '@angular/material/sidenav';
 })
 export class HeaderComponent implements OnInit {
   @Input() sideNavMenu: MatDrawer;
+  currentUser: User;
 
   constructor(private _router: Router) { }
 
   ngOnInit(): void {
+    this.setCurrentUser();
+  }
+
+  setCurrentUser() {
+    if (localStorage.getItem('currentUser')) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
   }
 
   goHome() {

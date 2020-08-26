@@ -3,18 +3,13 @@ import {NgModule} from '@angular/core';
 import {HomeComponent} from './home/home.component';
 import {PostsComponent} from './posts/posts.component';
 import {UsersComponent} from './users/users.component';
+import {LoginComponent} from './login/login.component';
 
 export const appRoutes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: LoginComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'posts', component: PostsComponent},
   {path: 'users', component: UsersComponent},
-  // {path: 'login', component: UserLoginComponent, canActivate: [NavigationGuard]},
-  // {
-  //   path: 'admin',
-  //   loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
-  //   canActivate: [AuthGuard, NavigationGuard],
-  //   data: { preload: false }
-  // },
 ];
 
 

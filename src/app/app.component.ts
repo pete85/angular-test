@@ -2,6 +2,7 @@ import {Component, OnInit, OnDestroy, ViewChild} from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
 import {UsersService} from './services/users.service';
 import {Subscription} from 'rxjs';
+import {User} from './models/user';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import {Subscription} from 'rxjs';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'chambers';
+  currentUser: User;
 
   @ViewChild('sideNav', { static: false })
   drawer: MatSidenav;
@@ -21,6 +23,12 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.getUsers();
+  }
+
+  setCurrentUser() {
+    if (localStorage.getItem('currentUser')) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    }
   }
 
   getUsers() {

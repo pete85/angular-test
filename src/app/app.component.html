@@ -1,7 +1,9 @@
-<mat-drawer-container class="example-container" autosize>
+<app-login *ngIf="!currentUser" (loggedIn)="setCurrentUser()"></app-login>
+
+<mat-drawer-container class="example-container" autosize *ngIf="currentUser">
   <mat-drawer #sideNav class="example-sidenav" mode="over">
     <mat-nav-list class="navigation-list">
-      <a class="navigation-item" mat-list-item routerLink="/" routerLinkActive="active">
+      <a class="navigation-item" mat-list-item routerLink="/home" routerLinkActive="active">
         <mat-icon class="material-icons">home</mat-icon>
         &nbsp;
         <span class="navigation-item-label">Home</span>
