@@ -1,8 +1,73 @@
 @import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@font-face {
+  font-family: montserrat;
+  src: url(assets/fonts/montserrat/Montserrat-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: six-caps;
+  src: url(assets/fonts/six_caps/SixCaps-Regular.ttf) format("truetype");
+}
+
+html, body { height: 100%; margin: 0}
+*{ font-family: montserrat, "Helvetica Neue", sans-serif; }
+
+/*button {*/
+/*  font-family: montserrat, "Helvetica Neue", sans-serif;*/
+/*}*/
 
 .mat-toolbar {
   position: fixed;
+  top: 0;
+}
+
+.homepage {
+  width: 100vw;
+  height: 100vh;
+  background: url("assets/img/bg2.jpg");
+  background-size: cover;
+}
+
+.homepage h1 {
+  color: #FFFFFF;
+  font-family: six-caps, "Helvetica Neue", sans-serif;
+  font-size: 2.5em;
+  line-height: 1.1;
+  text-shadow: 2px 2px #333333;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.padding-20 {
+  padding: 20px;
+}
+
+.padding-40 {
+  padding: 40px;
+}
+
+.padding-top-64 {
+  padding-top: 64px;
+}
+
+.font700 {
+  font-weight: 700;
+}
+
+.margin-top-20 {
+  margin-top: 20px;
+}
+
+.mat-toolbar img {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 600px) {
+  .homepage h1 {
+    font-size: 4em;
+    line-height: 1.1;
+  }
 }
