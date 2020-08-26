@@ -1,1 +1,17 @@
-<p>post works!</p>
+<div fxLayout="column" fxFlex class="post-item padding-20">
+  <h2>
+    <span fxFlex="100px" class="font700">Title</span>
+    <span class="font700">{{post?.title}}</span>
+  </h2>
+
+  <h3>
+    <span fxFlex="100px" class="font700">Author</span>
+    <span>{{post?.name}}</span>
+  </h3>
+
+  <h3>
+    <span fxFlex="100px" class="font700">Content</span>
+    <span>{{post?.body | slice:0:50}} ...</span>
+  </h3>
+  <mat-divider class="navigation-divider"></mat-divider>
+</div>

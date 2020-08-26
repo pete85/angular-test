@@ -1,1 +1,5 @@
-<div class="page"></div>
+<div class="page" fxLayout="column" fxFlex fxLayoutAlign="center center">
+  <mat-list role="list" class="content">
+    <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  </mat-list>
+</div>
