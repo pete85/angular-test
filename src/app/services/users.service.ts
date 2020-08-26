@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
-import {Observable, throwError as observableThrowError} from 'rxjs';
-import {HttpClient, HttpErrorResponse, HttpParams, HttpResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, throwError as observableThrowError} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpResponse} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
-import {Post} from '../models/post';
 import {User} from '../models/user';
 
 @Injectable({
@@ -10,7 +9,15 @@ import {User} from '../models/user';
 })
 export class UsersService {
 
-  constructor(private _http: HttpClient) { }
+  private _usersSource = new BehaviorSubject<User[]>(null);
+  public users = this._usersSource.asObservable();
+
+  constructor(private _http: HttpClient) {
+  }
+
+  setUsers(users: User[]) {
+    this._usersSource.next(users);
+  }
 
   getUsers(user_id): Observable<any> {
     let url;

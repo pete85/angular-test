@@ -11,14 +11,15 @@ import { UserComponent } from './users/user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
+import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 
 // Angular Material imports
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {MatListModule} from '@angular/material/list';
     ExtendedModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

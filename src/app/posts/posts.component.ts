@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit, OnDestroy {
   public posts: Post[];
   public users: User[];
   private _subPost: Subscription;
-  private _subUser: Subscription;
+  private _subUsers: Subscription;
   private _subscriptionList = new Subscription();
 
   constructor(private _postsService: PostsService,
@@ -33,7 +33,6 @@ export class PostsComponent implements OnInit, OnDestroy {
         if (response) {
           this.posts = response;
           this.posts.forEach((post) => {
-            console.log(post.userId);
             for (const user of this.users) {
               if (user.id === post.userId) {
                 post.name = user.name;
@@ -43,6 +42,7 @@ export class PostsComponent implements OnInit, OnDestroy {
         }
       },
       error => {
+        // Method to deal with error, i.e. Snack bar
       },
       () => {
         this._subscriptionList.add(this._subPost);
@@ -51,21 +51,19 @@ export class PostsComponent implements OnInit, OnDestroy {
   }
 
   getUsers() {
-    this._subUser = this._usersService.getUsers(null).subscribe(
+    this._subUsers = this._usersService.users.subscribe(
       response => {
         if (response) {
           this.users = response;
+          console.log('RESPONSE POSTS: ', response);
+          this.getPosts();
         }
       },
       error => {},
       () => {
-        this._subscriptionList.add(this._subUser);
-        this.getPosts();
+        this._subscriptionList.add(this._subUsers);
       }
     )
-  }
-
-  addName() {
   }
 
   ngOnDestroy() {
