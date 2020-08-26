@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {MatDrawer} from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  @Input() sideNavMenu: MatDrawer;
 
   constructor(private _router: Router) { }
 
@@ -16,5 +18,4 @@ export class HeaderComponent implements OnInit {
   goHome() {
     this._router.navigateByUrl('');
   }
-
 }

@@ -1,3 +1,34 @@
-<app-header></app-header>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #sideNav class="example-sidenav" mode="over">
+    <mat-nav-list class="navigation-list">
+      <a class="navigation-item" mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon class="material-icons">home</mat-icon>
+        &nbsp;
+        <span class="navigation-item-label">Home</span>
+      </a>
+      <mat-divider class="navigation-divider"></mat-divider>
+      <a class="navigation-item" mat-list-item routerLink="/posts" routerLinkActive="active">
+        <mat-icon class="material-icons">library_books</mat-icon>
+        &nbsp;
+        <span class="navigation-item-label">Posts</span>
+      </a>
+      <mat-divider class="navigation-divider"></mat-divider>
+      <a class="navigation-item" mat-list-item routerLink="/users" routerLinkActive="active">
+        <mat-icon class="material-icons">person_outline</mat-icon>
+        &nbsp;
+        <span class="navigation-item-label">Users</span>
+      </a>
 
-<router-outlet></router-outlet>
+      <a mat-list-item (click)="sideNav.toggle()" fxLayoutAlign="center end" class="menu-arrow">
+        <mat-icon class="material-icons" *ngIf="!sideNav.opened">chevron_right</mat-icon>
+        <mat-icon class="material-icons" *ngIf="sideNav.opened">chevron_left</mat-icon>
+      </a>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <app-header [sideNavMenu]="sideNav"></app-header>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

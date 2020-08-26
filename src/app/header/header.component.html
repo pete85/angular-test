@@ -1,7 +1,10 @@
 <mat-toolbar>
+  <button type="button" mat-button (click)="sideNavMenu.toggle()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">menu</mat-icon>
+  </button>
   <img src="assets/img/logo-12.svg" alt="company logo" fxHide.lt-sm (click)="goHome()">
   <img src="assets/img/logo-small.svg" alt="company logo" fxHide.gt-xs (click)="goHome()">
-  <div fxLayout="row" fxFlex fxLayoutAlign="end center">
+  <div fxLayout="row" fxFlex fxLayoutAlign.gt-xs="end center" fxLayoutAlign.lt-sm="center">
     <h2>Hello Piotr</h2>
   </div>
 </mat-toolbar>

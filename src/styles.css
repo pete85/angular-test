@@ -33,6 +33,7 @@ html, body { height: 100%; margin: 0}
   color: #FFFFFF;
   font-family: six-caps, "Helvetica Neue", sans-serif;
   font-size: 2.5em;
+  letter-spacing: 2px;
   line-height: 1.1;
   text-shadow: 2px 2px #333333;
 }
@@ -64,6 +65,118 @@ html, body { height: 100%; margin: 0}
 .mat-toolbar img {
   cursor: pointer;
 }
+
+.page {
+  min-height: 100vh;
+  margin-left: 60px;
+}
+
+/*SIDENAV*/
+.mat-list-base {
+  padding-top: 0 !important;
+  height: 100vh;
+}
+
+.menu-arrow {
+  position: absolute;
+  bottom: 0;
+}
+
+.drawer-container {
+  height: 100%;
+}
+.drawer-container .sidenav {
+  width: 300px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+.drawer-container .sidenav .home-button {
+  width: 100%;
+  padding-top: 60px;
+  margin-bottom: 30px;
+  display: inline-block;
+}
+.drawer-container .sidenav .home-button .app-logo {
+  width: 120px;
+  margin: 0 auto;
+  display: block;
+}
+.drawer-container .sidenav .mat-toolbar {
+  background: inherit;
+}
+.drawer-container .sidenav .navigation-list {
+  padding-top: 30px;
+}
+.drawer-container .sidenav .navigation-list .navigation-item.active {
+  background: #DCF0FB;
+}
+.drawer-container .sidenav .navigation-list .navigation-item .mat-icon {
+  margin-right: 5px;
+}
+.drawer-container .sidenav .navigation-list .navigation-item .navigation-item-label {
+  padding-top: 2px;
+}
+.drawer-container .sidenav .navigation-list .navigation-divider {
+  border-color: #DCF0FB;
+}
+.drawer-container .drawer-content .drawer-content-toolbar {
+  background: #062639;
+  color: #FFFFFF;
+  padding-left: 60px;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .menu-button {
+  color: #FFFFFF;
+  background: #062639;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .menu-button:focus {
+  outline: none;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .navbar-link {
+  color: #FFFFFF;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .navbar-link:hover {
+  color: #FFFFFF;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .navbar-link:focus {
+  outline: none;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .gifts a {
+  color: #FFFFFF;
+  display: inline-block;
+  padding-top: 7px;
+  padding-right: 20px;
+  position: relative;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .gifts a .mat-badge-content {
+  background: #D3544D;
+}
+.drawer-container .drawer-content .drawer-content-toolbar .gifts:focus {
+  outline: none;
+}
+.drawer-container .drawer-content .filler {
+  flex: 1 1 auto;
+}
+.drawer-container .mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+/*left sidenav style override*/
+mat-drawer:not(.mat-drawer-opened) {
+  transform: translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+  width: 60px !important;
+  overflow: hidden;
+}
+mat-drawer:not(.mat-drawer-opened) .navigation-item-label {
+  display: none !important;
+}
+mat-drawer:not(.mat-drawer-opened) .home-button {
+  display: none !important;
+}
+
 
 @media only screen and (min-width: 600px) {
   .homepage h1 {
