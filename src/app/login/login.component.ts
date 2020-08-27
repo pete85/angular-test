@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
           this.users = response;
         }
       },
-      error => {
-      },
+      error => {},
       () => {
         this._subscriptionList.add(this._subUsers);
       }
@@ -62,5 +61,4 @@ export class LoginComponent implements OnInit {
     this.loggedIn.emit(true);
     this._router.navigateByUrl('/home');
   }
-
 }
