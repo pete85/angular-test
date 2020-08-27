@@ -37,10 +37,31 @@
         <p>{{data?.company?.bs}}</p>
       </div>
     </div>
+
+    <mat-divider class="navigation-divider"></mat-divider>
+
+    <div fxLayout="column" fxFlex class="margin-top-10" *ngIf="posts">
+      <p class="font700">Posts</p>
+      <div fxLayout="column" fxFlex class="userPosts">
+        <ng-container *ngFor="let post of posts; let i = index">
+          <div fxLayout="row" fxFlex *ngIf="i < postsToShow">
+            <p>
+              <span fxFlex="20px">{{i + 1}}</span>
+              <span>{{post?.title}}</span>
+            </p>
+          </div>
+        </ng-container>
+      </div>
+
+      <button mat-button (click)="showMorePosts()">More</button>
+    </div>
+
   </div>
 
 
 </mat-dialog-content>
 <mat-dialog-actions fxLayoutAlign="end center">
-  <button mat-button mat-dialog-close>Close</button>
+  <div class="margin-top-10">
+    <button mat-button mat-dialog-close>Close</button>
+  </div>
 </mat-dialog-actions>

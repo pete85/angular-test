@@ -143,6 +143,13 @@ html, body { height: 100%; margin: 0}
   width: 100%;
 }
 
+.userPosts {
+  max-height: 120px;
+  min-height: 120px;
+  overflow-y: scroll;
+  padding: 20px;
+}
+
 /*SIDENAV*/
 .mat-list-base {
   padding-top: 0 !important;

@@ -21,11 +21,19 @@ export class PostsService {
     } else {
       url = 'https://jsonplaceholder.typicode.com/posts';
     }
-    return this._http
-      .get(url).pipe(
-        map((response: HttpResponse<Post[]>) => response),
-        catchError(this.handleError)
-      );
+    if (user_id) {
+      return this._http
+        .get(url, {params: params}).pipe(
+          map((response: HttpResponse<Post[]>) => response),
+          catchError(this.handleError)
+        );
+    } else {
+      return this._http
+        .get(url).pipe(
+          map((response: HttpResponse<Post[]>) => response),
+          catchError(this.handleError)
+        );
+    }
   }
 
   createPost(body): Observable<any> {
