@@ -1,1 +1,13 @@
-<p>post-dialog works!</p>
+<h2 class="txtWhite">{{data?.title}}</h2>
+<mat-dialog-content class="mat-typography">
+  <p>{{data?.body}}</p>
+  <mat-divider class="navigation-divider"></mat-divider>
+  <div class="margin-top-10">
+    <p>
+      <span class="font700">Author </span><span>{{data?.name}}</span>
+    </p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutAlign="end center">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

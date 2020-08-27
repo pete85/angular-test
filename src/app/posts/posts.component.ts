@@ -42,7 +42,7 @@ export class PostsComponent implements OnInit, OnDestroy {
         }
       },
       error => {
-        // Method to deal with error, i.e. Snack bar
+        // Method to deal with error, i.e. Snack bar. Not implemented for this test.
       },
       () => {
         this._subscriptionList.add(this._subPost);
@@ -55,7 +55,6 @@ export class PostsComponent implements OnInit, OnDestroy {
       response => {
         if (response) {
           this.users = response;
-          console.log('RESPONSE POSTS: ', response);
           this.getPosts();
         }
       },

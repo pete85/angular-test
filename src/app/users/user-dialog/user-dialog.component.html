@@ -1,1 +1,46 @@
-<p>user-dialog works!</p>
+<h2 class="txtWhite">{{data?.name}}</h2>
+<mat-dialog-content class="mat-typography">
+
+  <div fxLayout="column" fxFlex>
+
+    <div fxLayout="row" fxFlex class="margin-top-10">
+      <div fxFlex="90px">
+        <p class="font700">Contact</p>
+      </div>
+      <div fxLayout="column" fxFlex>
+        <p>{{data?.email}}</p>
+        <p>{{data?.phone}}</p>
+      </div>
+    </div>
+
+    <mat-divider class="navigation-divider"></mat-divider>
+
+    <div fxLayout="row" fxFlex class="margin-top-10">
+      <div fxFlex="90px">
+        <p class="font700">Address</p>
+      </div>
+      <div fxLayout="column" fxFlex>
+        <p>{{data?.address?.city}}</p>
+        <p>{{data?.address?.street}}</p>
+        <p>{{data?.address?.zipcode}}</p>
+      </div>
+    </div>
+
+    <mat-divider class="navigation-divider"></mat-divider>
+
+    <div fxLayout="row" fxFlex class="margin-top-10">
+      <div fxFlex="90px">
+        <p class="font700">Company</p>
+      </div>
+      <div fxLayout="column" fxFlex>
+        <p>{{data?.company?.name}}</p>
+        <p>{{data?.company?.bs}}</p>
+      </div>
+    </div>
+  </div>
+
+
+</mat-dialog-content>
+<mat-dialog-actions fxLayoutAlign="end center">
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

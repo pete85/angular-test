@@ -17,17 +17,20 @@ export class UsersComponent implements OnInit, OnDestroy {
   public users: User[];
 
   @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.innerWidth = window.innerWidth;
+  onResize($event) {
+    if ($event.target) {
+      this.innerWidth = $event.target.innerWidth;
+    } else {
+      this.innerWidth = window.innerWidth;
+    }
     this.setGrid(this.innerWidth);
   };
 
   constructor(private _usersService: UsersService) {
-    this.onResize();
   }
 
   ngOnInit(): void {
-    this.setGrid(this.innerWidth);
+    this.onResize(Event);
     this.getUsers();
   }
 

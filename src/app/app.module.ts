@@ -13,6 +13,8 @@ import { HeaderComponent } from './header/header.component';
 import {HttpClientModule} from '@angular/common/http';
 import {ExtendedModule, FlexModule} from '@angular/flex-layout';
 import {ReactiveFormsModule} from '@angular/forms';
+import { PostDialogComponent } from './posts/post-dialog/post-dialog.component';
+import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
 
 // Angular Material imports
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -25,8 +27,7 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { PostDialogComponent } from './posts/post-dialog/post-dialog.component';
-import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,7 +3,7 @@
   <mat-grid-list [cols]="gridCols"
                  rowHeight="190"
                  gutterSize="20"
-                 (window:resize)="onResize()"
+                 (window:resize)="onResize($event)"
                  *ngIf="users">
     <mat-grid-tile *ngFor="let user of users"
                    class="animated fadeIn">
