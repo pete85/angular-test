@@ -11,13 +11,13 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'chambers';
-  currentUser: User;
+  public title = 'chambers';
+  public currentUser: User;
+  private _subUser: Subscription;
+  private _subscriptionList = new Subscription();
 
   @ViewChild('sideNav', { static: false })
   drawer: MatSidenav;
-  private _subUser: Subscription;
-  private _subscriptionList = new Subscription();
 
   constructor(private _usersService: UsersService,
               private _router: Router) {

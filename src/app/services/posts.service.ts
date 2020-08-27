@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {Observable, throwError as observableThrowError} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, throwError as observableThrowError} from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpParams, HttpResponse} from '@angular/common/http';
 import {catchError, map} from 'rxjs/operators';
 import {Post} from '../models/post';
@@ -9,7 +9,8 @@ import {Post} from '../models/post';
 })
 export class PostsService {
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) {
+  }
 
   getPosts(post_id, user_id): Observable<any> {
     const params = new HttpParams()
@@ -25,6 +26,15 @@ export class PostsService {
         map((response: HttpResponse<Post[]>) => response),
         catchError(this.handleError)
       );
+  }
+
+  createPost(body): Observable<any> {
+    return this._http.post('https://jsonplaceholder.typicode.com/posts', body).pipe(
+      map((response: HttpResponse<any>) => {
+        return {response}
+      }),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

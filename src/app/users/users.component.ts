@@ -52,7 +52,6 @@ export class UsersComponent implements OnInit, OnDestroy {
       response => {
         if (response) {
           this.users = response;
-          console.log('Users: ', this.users);
         }
       },
       error => {

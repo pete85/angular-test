@@ -1,0 +1,47 @@
+<h2 class="txtWhite">Create new post</h2>
+<form [formGroup]="formGroup" *ngIf="formGroup && data" (submit)="createPost()" class="post-form">
+  <mat-dialog-content class="mat-typography">
+    <div fxLayout="column" fxFlex>
+
+      <!-- ******************* TITLE ******************* -->
+      <div fxLayout="row" fxLayoutAlign="center center" fxFlex>
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <label>
+            <input matInput
+                   placeholder="Post title"
+                   name="title"
+                   type="text"
+                   formControlName="title">
+          </label>
+          <mat-error *ngIf="f.title.touched">
+            Title must be at least 3 characters long
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <!-- ******************* BODY ******************* -->
+      <div fxLayout="row" fxLayoutAlign="center center" fxFlex>
+        <mat-form-field appearance="outline">
+          <mat-label>Body</mat-label>
+          <label>
+            <textarea matInput
+                      placeholder="Post body"
+                      name="body"
+                      formControlName="body"></textarea>
+          </label>
+          <mat-error *ngIf="f.body.touched">
+            Body must be at least 10 characters long
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayoutAlign="end center">
+    <button mat-button type="submit">
+      <span>Create</span>
+      <mat-icon class="material-icons loaderIcon" *ngIf="sending">sync</mat-icon>
+    </button>
+    <button mat-button mat-dialog-close>Close</button>
+  </mat-dialog-actions>
+</form>

@@ -1,9 +1,12 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {PostsService} from '../services/posts.service';
 import {UsersService} from '../services/users.service';
 import {Post} from '../models/post';
 import {User} from '../models/user';
+import {NewPostDialogComponent} from './new-post-dialog/new-post-dialog.component';
+import {MatDialog} from '@angular/material/dialog';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-posts',
@@ -14,16 +17,39 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   public posts: Post[];
   public users: User[];
+  public currentUser: User;
+  public innerWidth: number;
   private _subPost: Subscription;
   private _subUsers: Subscription;
   private _subscriptionList = new Subscription();
 
+  @HostListener('window:resize', ['$event'])
+  onResize($event) {
+    if ($event.target) {
+      this.innerWidth = $event.target.innerWidth;
+    } else {
+      this.innerWidth = window.innerWidth;
+    }
+  };
+
   constructor(private _postsService: PostsService,
-              private _usersService: UsersService) {
+              private _usersService: UsersService,
+              private _router: Router,
+              public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
+    this.setCurrentUser();
+    this.onResize(Event);
     this.getUsers();
+  }
+
+  setCurrentUser() {
+    if (localStorage.getItem('currentUser')) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    } else {
+      this._router.navigateByUrl('login');
+    }
   }
 
   getPosts() {
@@ -58,11 +84,30 @@ export class PostsComponent implements OnInit, OnDestroy {
           this.getPosts();
         }
       },
-      error => {},
+      error => {
+      },
       () => {
         this._subscriptionList.add(this._subUsers);
       }
-    )
+    );
+  }
+
+  openNewPostDialog(): void {
+
+    let maxWidth: string;
+
+    if (this.innerWidth > 600) {
+      maxWidth = '60%';
+    } else {
+      maxWidth = '95%';
+    }
+
+    const dialogRef = this.dialog.open(NewPostDialogComponent, {
+      width: maxWidth,
+      maxWidth: maxWidth,
+      maxHeight: '95%',
+      data: this.currentUser
+    });
   }
 
   ngOnDestroy() {
