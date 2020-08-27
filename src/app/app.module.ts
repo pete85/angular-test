@@ -25,6 +25,8 @@ import { LoginComponent } from './login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { PostDialogComponent } from './posts/post-dialog/post-dialog.component';
+import { UserDialogComponent } from './users/user-dialog/user-dialog.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {MatSelectModule} from '@angular/material/select';
     PostComponent,
     UserComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    PostDialogComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import {MatSidenav} from '@angular/material/sidenav';
 import {UsersService} from './services/users.service';
 import {Subscription} from 'rxjs';
 import {User} from './models/user';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -18,16 +19,20 @@ export class AppComponent implements OnInit, OnDestroy {
   private _subUser: Subscription;
   private _subscriptionList = new Subscription();
 
-  constructor(private _usersService: UsersService) {
+  constructor(private _usersService: UsersService,
+              private _router: Router) {
   }
 
   ngOnInit() {
+    this.setCurrentUser();
     this.getUsers();
   }
 
   setCurrentUser() {
     if (localStorage.getItem('currentUser')) {
       this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    } else {
+      this._router.navigateByUrl('login');
     }
   }
 
