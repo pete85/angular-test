@@ -15,8 +15,7 @@ export const appRoutes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes, {
-    useHash: true,
-    // preloadingStrategy: CustomPreloadingStrategyService
+    useHash: false
   })],
   exports: [RouterModule]
 })
