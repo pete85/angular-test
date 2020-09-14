@@ -6,6 +6,7 @@ import {UsersComponent} from './users/users.component';
 import {LoginComponent} from './login/login.component';
 
 export const appRoutes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'home', component: HomeComponent},
   {path: 'posts', component: PostsComponent},
